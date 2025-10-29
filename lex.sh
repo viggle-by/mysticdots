@@ -58,6 +58,12 @@ yay -S grub-theme-minegrub-world-selection-git
 echo "-> Installing minesddm theme..."
 git clone https://github.com/Davi-S/sddm-theme-minesddm.git ~/sddm-theme-minesddm && sudo cp -r ~/sddm-theme-minesddm/minesddm /usr/share/sddm/themes/
 
+echo -> Installing plymouth theme..."
+git clone https://github.com/nikp123/minecraft-plymouth-theme
+    cd minecraft-plymouth-theme
+    sudo ./install.sh
+    plymouth-set-default-theme -R mc
+
 echo ""
 echo "=============================================="
 echo "   MysticDotfiles installation complete!"
