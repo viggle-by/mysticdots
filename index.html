@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MysticDotfiles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: #161b22;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #58a6ff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #58a6ff;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #c9d1d9;
+    }
+
+    section.install {
+      margin-top: 2rem;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    pre {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem;
+      color: #7ee787;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+
+    button.copy-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #238636;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button.copy-btn:hover {
+      background: #2ea043;
+    }
+
+    footer {
+      padding: 1rem;
+      text-align: center;
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    MysticDotfiles
+  </header>
+
+  <main>
+    <h1>Beautiful, Fast, and Customizable Dotfiles</h1>
+    <p>
+      MysticDotfiles provides a seamless setup for Linux and macOS environments — featuring
+      clean themes, powerful utilities, and modern development workflows.
+    </p>
+
+    <section class="install">
+      <h2>Install</h2>
+      <p>Run the following command to install:</p>
+      <pre id="install-command">
+/bin/bash -c "$(curl -fsSL https://github.com/viggle-by/mysticdots/raw/refs/heads/main/install.sh)"
+      </pre>
+      <button class="copy-btn" onclick="copyCommand()">Copy Command</button>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 MysticDotfiles — <a href="https://github.com/viggle-by/mysticdots" target="_blank">GitHub</a>
+  </footer>
+
+  <script>
+    function copyCommand() {
+      const cmd = document.getElementById('install-command').innerText.trim();
+      navigator.clipboard.writeText(cmd).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = "Copied!";
+        setTimeout(() => btn.textContent = "Copy Command", 2000);
+      });
+    }
+  </script>
+</body>
+</html>
