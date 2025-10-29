@@ -42,7 +42,13 @@ echo ""
 echo "[*] Starting installation..."
 
 echo "-> Installing yay..."
-# ~/.mystic-dotfiles/scripts/apply_themes.sh
+cd /tmp
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si --noconfirm
+  cd -
+  rm -rf yay-bin
+  cd ~
 
 echo "-> Installing dependencies..."
 yay -S --noconfirm --needed \
